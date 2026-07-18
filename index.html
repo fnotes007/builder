@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline Website Builder Pro</title>
+<link rel="stylesheet" href="css/builder.css">
+</head>
+<body>
+<div id="wb-app">
+
+  <!-- TOOLBAR -->
+  <div id="wb-toolbar">
+    <div class="wb-toolbar-brand">🏗 <span>Builder</span> Pro</div>
+    <div class="wb-toolbar-group">
+      <button class="wb-tool-btn" id="btn-new" title="New Project">📄 New</button>
+      <button class="wb-tool-btn" id="btn-open" title="Open .builder file">📂 Open</button>
+      <button class="wb-tool-btn" id="btn-save" title="Save (Ctrl+S)">💾 Save</button>
+    </div>
+    <div class="wb-toolbar-group">
+      <button class="wb-tool-btn" id="btn-undo" disabled title="Undo (Ctrl+Z)">↶ Undo</button>
+      <button class="wb-tool-btn" id="btn-redo" disabled title="Redo (Ctrl+Shift+Z)">↷ Redo</button>
+    </div>
+    <div class="wb-toolbar-group">
+      <button class="wb-tool-btn active" data-viewport="desktop" title="Desktop">🖥</button>
+      <button class="wb-tool-btn" data-viewport="tablet" title="Tablet 820px">⬜ 820</button>
+      <button class="wb-tool-btn" data-viewport="mobile" title="Mobile 430px">📱 430</button>
+    </div>
+    <div id="wb-mode-toggle">
+      <button class="wb-mode-btn active" data-mode="design">Design</button>
+      <button class="wb-mode-btn" data-mode="collections">Collections</button>
+      <button class="wb-mode-btn" data-mode="forms">Forms</button>
+      <button class="wb-mode-btn" data-mode="media">Media</button>
+      <button class="wb-mode-btn" data-mode="blog">Blog</button>
+      <button class="wb-mode-btn" data-mode="theme">Theme</button>
+      <button class="wb-mode-btn" data-mode="menu">Menu</button>
+    </div>
+    <div class="wb-toolbar-spacer"></div>
+    <div class="wb-toolbar-group">
+      <button class="wb-tool-btn" id="btn-import-html" title="Re-import exported HTML">⬆ Import</button>
+      <button class="wb-tool-btn wb-tool-btn-blogger" id="btn-blogger" title="Download Blogger XML theme">🅱 Blogger</button>
+      <button class="wb-tool-btn wb-tool-btn-preview" id="btn-preview" title="Preview (Esc to close)">▶ Preview</button>
+      <button class="wb-tool-btn wb-tool-btn-primary" id="btn-export" title="Export ZIP">⬇ Export</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="wb-main">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="wb-sidebar" id="wb-left-sidebar">
+      <div class="wb-sidebar-tabs">
+        <div class="wb-sidebar-tab active" data-tab="add">Add</div>
+        <div class="wb-sidebar-tab" data-tab="layers">Layers</div>
+        <div class="wb-sidebar-tab" data-tab="templates">Templates</div>
+      </div>
+      <!-- ADD PANEL -->
+      <div class="wb-sidebar-panel active" data-panel="add">
+        <div class="wb-panel-heading">Sections</div>
+        <div class="wb-palette-grid">
+          <div class="wb-palette-item" data-section-type="hero"><span class="pi-icon">🖼️</span><span class="pi-name">Hero</span></div>
+          <div class="wb-palette-item" data-section-type="about"><span class="pi-icon">📄</span><span class="pi-name">About</span></div>
+          <div class="wb-palette-item" data-section-type="services"><span class="pi-icon">🛠️</span><span class="pi-name">Services</span></div>
+          <div class="wb-palette-item" data-section-type="pricing"><span class="pi-icon">💰</span><span class="pi-name">Pricing</span></div>
+          <div class="wb-palette-item" data-section-type="team"><span class="pi-icon">👥</span><span class="pi-name">Team</span></div>
+          <div class="wb-palette-item" data-section-type="testimonials"><span class="pi-icon">💬</span><span class="pi-name">Reviews</span></div>
+          <div class="wb-palette-item" data-section-type="faq"><span class="pi-icon">❓</span><span class="pi-name">FAQ</span></div>
+          <div class="wb-palette-item" data-section-type="gallery"><span class="pi-icon">🖼️</span><span class="pi-name">Gallery</span></div>
+          <div class="wb-palette-item" data-section-type="slider"><span class="pi-icon">🎠</span><span class="pi-name">Slider</span></div>
+          <div class="wb-palette-item" data-section-type="video"><span class="pi-icon">🎬</span><span class="pi-name">Video</span></div>
+          <div class="wb-palette-item" data-section-type="blog"><span class="pi-icon">📰</span><span class="pi-name">Blog</span></div>
+          <div class="wb-palette-item" data-section-type="statistics"><span class="pi-icon">📈</span><span class="pi-name">Statistics</span></div>
+          <div class="wb-palette-item" data-section-type="clients"><span class="pi-icon">🏢</span><span class="pi-name">Clients</span></div>
+          <div class="wb-palette-item" data-section-type="map"><span class="pi-icon">📍</span><span class="pi-name">Google Map</span></div>
+          <div class="wb-palette-item" data-section-type="cta"><span class="pi-icon">📣</span><span class="pi-name">CTA</span></div>
+          <div class="wb-palette-item" data-section-type="contact"><span class="pi-icon">✉️</span><span class="pi-name">Contact</span></div>
+          <div class="wb-palette-item" data-section-type="newsletter"><span class="pi-icon">📧</span><span class="pi-name">Newsletter</span></div>
+          <div class="wb-palette-item" data-section-type="footer"><span class="pi-icon">⬛</span><span class="pi-name">Footer</span></div>
+          <div class="wb-palette-item" data-section-type="collection-grid"><span class="pi-icon">🗂️</span><span class="pi-name">Collection Grid</span></div>
+          <div class="wb-palette-item" data-section-type="custom-form"><span class="pi-icon">📝</span><span class="pi-name">Custom Form</span></div>
+          <div class="wb-palette-item" data-section-type="blog-list"><span class="pi-icon">📚</span><span class="pi-name">Blog List</span></div>
+        </div>
+        <div class="wb-panel-heading">Components</div>
+        <div class="wb-palette-grid">
+          <div class="wb-palette-item" data-section-type="accordion"><span class="pi-icon">📁</span><span class="pi-name">Accordion</span></div>
+          <div class="wb-palette-item" data-section-type="tabs"><span class="pi-icon">📑</span><span class="pi-name">Tabs</span></div>
+          <div class="wb-palette-item" data-section-type="timeline"><span class="pi-icon">📅</span><span class="pi-name">Timeline</span></div>
+          <div class="wb-palette-item" data-section-type="counters"><span class="pi-icon">🔢</span><span class="pi-name">Counters</span></div>
+          <div class="wb-palette-item" data-section-type="progress"><span class="pi-icon">📊</span><span class="pi-name">Progress</span></div>
+          <div class="wb-palette-item" data-section-type="badges"><span class="pi-icon">🏷️</span><span class="pi-name">Badges</span></div>
+          <div class="wb-palette-item" data-section-type="alert"><span class="pi-icon">⚠️</span><span class="pi-name">Alert</span></div>
+          <div class="wb-palette-item" data-section-type="popup-button"><span class="pi-icon">🪟</span><span class="pi-name">Popup Button</span></div>
+          <div class="wb-palette-item" data-section-type="custom-html"><span class="pi-icon">🧩</span><span class="pi-name">Custom Code</span></div>
+          <div class="wb-palette-item" data-section-type="iframe-embed"><span class="pi-icon">🖼️</span><span class="pi-name">iFrame Embed</span></div>
+        </div>
+      </div>
+      <!-- LAYERS PANEL -->
+      <div class="wb-sidebar-panel" data-panel="layers">
+        <div class="wb-layer-list" id="wb-section-list"></div>
+      </div>
+      <!-- TEMPLATES PANEL -->
+      <div class="wb-sidebar-panel" data-panel="templates">
+        <div id="wb-templates-body"></div>
+      </div>
+    </aside>
+
+    <!-- CANVAS -->
+    <main id="wb-canvas-wrap">
+      <div id="wb-canvas-inner">
+        <div class="wb-viewport-badge" id="wb-viewport-badge">🖥&nbsp;&nbsp;Desktop</div>
+        <div id="wb-canvas" data-viewport="desktop">
+          <div id="wb-preview-root"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="wb-sidebar" id="wb-right-sidebar">
+      <div class="wb-sidebar-tabs">
+        <div class="wb-sidebar-tab active">Inspector</div>
+        <div class="wb-sidebar-tab" data-tab="theme" id="tab-theme">Theme</div>
+        <div class="wb-sidebar-tab" data-tab="seo" id="tab-seo">SEO</div>
+        <div class="wb-sidebar-tab" data-tab="assets" id="tab-assets">Assets</div>
+      </div>
+      <div id="wb-inspector-body">
+        <div class="wb-inspector-empty">
+          <div class="ie-icon">🎯</div>
+          Click any section on the canvas to edit its properties here.
+        </div>
+      </div>
+      <div class="wb-sidebar-panel" data-panel="theme" id="wb-theme-body"></div>
+      <div class="wb-sidebar-panel" data-panel="seo" id="wb-seo-body"></div>
+      <div class="wb-sidebar-panel" data-panel="assets" id="wb-assets-body"></div>
+    </aside>
+
+  </div><!-- #wb-main -->
+
+  <!-- COLLECTIONS MODE -->
+  <div class="wb-mode-view" id="mode-collections">
+    <aside class="wb-mode-list">
+      <h3>Collections</h3>
+      <button class="wb-mode-new-btn" id="col-new-btn">+ New Collection</button>
+      <div id="col-list-items"></div>
+    </aside>
+    <main class="wb-mode-main" id="col-main"></main>
+  </div>
+
+  <!-- FORMS MODE -->
+  <div class="wb-mode-view" id="mode-forms">
+    <aside class="wb-mode-list">
+      <h3>Forms</h3>
+      <button class="wb-mode-new-btn" id="form-new-btn">+ New Form</button>
+      <div id="form-list-items"></div>
+    </aside>
+    <main class="wb-mode-main" id="form-main"></main>
+  </div>
+
+  <!-- MEDIA MODE -->
+  <div class="wb-mode-view" id="mode-media">
+    <div id="wb-media-toolbar">
+      <input type="file" id="wb-media-upload-input" accept="image/*" style="display:none;">
+      <button class="wb-tool-btn wb-tool-btn-primary" id="wb-media-upload-btn">⬆ Upload Image</button>
+      <button class="wb-tool-btn" id="wb-media-url-btn">🔗 Add by URL</button>
+      <select id="wb-media-folder-filter">
+        <option value="">All folders</option>
+        <option value="gallery">gallery</option>
+        <option value="logos">logos</option>
+        <option value="videos">videos</option>
+        <option value="downloads">downloads</option>
+      </select>
+    </div>
+    <div id="wb-media-grid"></div>
+  </div>
+
+  <!-- BLOG MODE -->
+  <div class="wb-mode-view" id="mode-blog">
+    <aside class="wb-mode-list">
+      <h3>Posts</h3>
+      <button class="wb-mode-new-btn" id="post-new-btn">+ New Post</button>
+      <div id="post-list-items"></div>
+    </aside>
+    <main class="wb-mode-main" id="blog-main"></main>
+  </div>
+
+  <!-- THEME MODE -->
+  <div class="wb-mode-view" id="mode-theme">
+    <main class="wb-mode-main" id="theme-main"></main>
+  </div>
+
+  <!-- MENU MODE -->
+  <div class="wb-mode-view" id="mode-menu">
+    <main class="wb-mode-main" id="menu-main"></main>
+  </div>
+
+</div><!-- #wb-app -->
+
+<!-- PREVIEW MODAL -->
+<div id="wb-preview-modal">
+  <div id="wb-preview-toolbar">
+    <span class="pv-title">Preview</span>
+    <span class="pv-url" id="pv-url-bar">preview</span>
+    <button class="pv-size-btn active" data-pv="desktop">🖥 Desktop</button>
+    <button class="pv-size-btn" data-pv="tablet">⬜ Tablet</button>
+    <button class="pv-size-btn" data-pv="mobile">📱 Mobile</button>
+    <button class="pv-open-tab" id="btn-open-tab">↗ New Tab</button>
+    <button class="pv-close" id="btn-close-preview">✕ Close</button>
+  </div>
+  <div id="wb-preview-frame-wrap">
+    <iframe id="wb-preview-iframe" class="pv-desktop" title="Preview"></iframe>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="wb-toast-container"></div>
+
+<!-- MOBILE DRAWERS -->
+<div id="wb-drawer-overlay"></div>
+<div class="wb-drawer" id="wb-drawer-add">
+  <div class="wb-drawer-handle"></div>
+  <div class="wb-drawer-title">Add Section <button class="wb-drawer-close" data-close-drawer="wb-drawer-add">✕</button></div>
+  <div class="wb-drawer-body">
+    <div class="wb-panel-heading">Sections</div>
+    <div class="wb-palette-grid">
+      <div class="wb-palette-item" data-section-type="hero"><span class="pi-icon">🖼️</span><span class="pi-name">Hero</span></div>
+      <div class="wb-palette-item" data-section-type="about"><span class="pi-icon">📄</span><span class="pi-name">About</span></div>
+      <div class="wb-palette-item" data-section-type="services"><span class="pi-icon">🛠️</span><span class="pi-name">Services</span></div>
+      <div class="wb-palette-item" data-section-type="pricing"><span class="pi-icon">💰</span><span class="pi-name">Pricing</span></div>
+      <div class="wb-palette-item" data-section-type="team"><span class="pi-icon">👥</span><span class="pi-name">Team</span></div>
+      <div class="wb-palette-item" data-section-type="testimonials"><span class="pi-icon">💬</span><span class="pi-name">Reviews</span></div>
+      <div class="wb-palette-item" data-section-type="faq"><span class="pi-icon">❓</span><span class="pi-name">FAQ</span></div>
+      <div class="wb-palette-item" data-section-type="gallery"><span class="pi-icon">🖼️</span><span class="pi-name">Gallery</span></div>
+      <div class="wb-palette-item" data-section-type="video"><span class="pi-icon">🎬</span><span class="pi-name">Video</span></div>
+      <div class="wb-palette-item" data-section-type="blog"><span class="pi-icon">📰</span><span class="pi-name">Blog</span></div>
+      <div class="wb-palette-item" data-section-type="statistics"><span class="pi-icon">📈</span><span class="pi-name">Stats</span></div>
+      <div class="wb-palette-item" data-section-type="clients"><span class="pi-icon">🏢</span><span class="pi-name">Clients</span></div>
+      <div class="wb-palette-item" data-section-type="map"><span class="pi-icon">📍</span><span class="pi-name">Map</span></div>
+      <div class="wb-palette-item" data-section-type="cta"><span class="pi-icon">📣</span><span class="pi-name">CTA</span></div>
+      <div class="wb-palette-item" data-section-type="contact"><span class="pi-icon">✉️</span><span class="pi-name">Contact</span></div>
+      <div class="wb-palette-item" data-section-type="newsletter"><span class="pi-icon">📧</span><span class="pi-name">Newsletter</span></div>
+      <div class="wb-palette-item" data-section-type="footer"><span class="pi-icon">⬛</span><span class="pi-name">Footer</span></div>
+      <div class="wb-palette-item" data-section-type="collection-grid"><span class="pi-icon">🗂️</span><span class="pi-name">Coll. Grid</span></div>
+      <div class="wb-palette-item" data-section-type="custom-form"><span class="pi-icon">📝</span><span class="pi-name">Form</span></div>
+      <div class="wb-palette-item" data-section-type="blog-list"><span class="pi-icon">📚</span><span class="pi-name">Blog List</span></div>
+      <div class="wb-palette-item" data-section-type="accordion"><span class="pi-icon">📁</span><span class="pi-name">Accordion</span></div>
+      <div class="wb-palette-item" data-section-type="tabs"><span class="pi-icon">📑</span><span class="pi-name">Tabs</span></div>
+      <div class="wb-palette-item" data-section-type="timeline"><span class="pi-icon">📅</span><span class="pi-name">Timeline</span></div>
+      <div class="wb-palette-item" data-section-type="counters"><span class="pi-icon">🔢</span><span class="pi-name">Counters</span></div>
+      <div class="wb-palette-item" data-section-type="progress"><span class="pi-icon">📊</span><span class="pi-name">Progress</span></div>
+      <div class="wb-palette-item" data-section-type="badges"><span class="pi-icon">🏷️</span><span class="pi-name">Badges</span></div>
+      <div class="wb-palette-item" data-section-type="alert"><span class="pi-icon">⚠️</span><span class="pi-name">Alert</span></div>
+      <div class="wb-palette-item" data-section-type="popup-button"><span class="pi-icon">🪟</span><span class="pi-name">Popup</span></div>
+      <div class="wb-palette-item" data-section-type="custom-html"><span class="pi-icon">🧩</span><span class="pi-name">Custom Code</span></div>
+      <div class="wb-palette-item" data-section-type="iframe-embed"><span class="pi-icon">🖼️</span><span class="pi-name">iFrame</span></div>
+    </div>
+  </div>
+</div>
+<div class="wb-drawer" id="wb-drawer-layers">
+  <div class="wb-drawer-handle"></div>
+  <div class="wb-drawer-title">Layers <button class="wb-drawer-close" data-close-drawer="wb-drawer-layers">✕</button></div>
+  <div class="wb-drawer-body" id="wb-mob-layer-list"></div>
+</div>
+<div class="wb-drawer" id="wb-drawer-inspector">
+  <div class="wb-drawer-handle"></div>
+  <div class="wb-drawer-title"><span id="wb-mob-inspector-title">Inspector</span> <button class="wb-drawer-close" data-close-drawer="wb-drawer-inspector">✕</button></div>
+  <div class="wb-drawer-body" id="wb-mob-inspector-body"><p style="color:var(--text-3);font-size:.82rem;padding:16px 0;">Tap a section on the canvas to edit it.</p></div>
+</div>
+<div class="wb-drawer" id="wb-drawer-templates">
+  <div class="wb-drawer-handle"></div>
+  <div class="wb-drawer-title">Templates <button class="wb-drawer-close" data-close-drawer="wb-drawer-templates">✕</button></div>
+  <div class="wb-drawer-body" id="wb-mob-templates-body"></div>
+</div>
+<div class="wb-drawer" id="wb-drawer-modes">
+  <div class="wb-drawer-handle"></div>
+  <div class="wb-drawer-title">Switch Mode <button class="wb-drawer-close" data-close-drawer="wb-drawer-modes">✕</button></div>
+  <div class="wb-drawer-body" id="wb-mob-modes-body">
+    <button class="wb-mob-mode-item" data-mode="design"><span class="mm-icon">🎨</span>Design</button>
+    <button class="wb-mob-mode-item" data-mode="collections"><span class="mm-icon">🗂️</span>Collections</button>
+    <button class="wb-mob-mode-item" data-mode="forms"><span class="mm-icon">📝</span>Forms</button>
+    <button class="wb-mob-mode-item" data-mode="media"><span class="mm-icon">🖼️</span>Media</button>
+    <button class="wb-mob-mode-item" data-mode="blog"><span class="mm-icon">📚</span>Blog</button>
+    <button class="wb-mob-mode-item" data-mode="theme"><span class="mm-icon">🎭</span>Theme</button>
+    <button class="wb-mob-mode-item" data-mode="menu"><span class="mm-icon">📋</span>Menu</button>
+  </div>
+</div>
+<button id="wb-mob-back-to-design" style="display:none;">← Back to Design</button>
+<div id="wb-mobile-tabbar">
+  <button class="wb-mob-tab" data-drawer="wb-drawer-add"><span class="mt-icon">＋</span>Add</button>
+  <button class="wb-mob-tab" data-drawer="wb-drawer-layers"><span class="mt-icon">☰</span>Layers</button>
+  <button class="wb-mob-tab" data-drawer="wb-drawer-inspector"><span class="mt-icon">✏️</span>Edit</button>
+  <button class="wb-mob-tab" data-drawer="wb-drawer-templates"><span class="mt-icon">🎨</span>Templates</button>
+  <button class="wb-mob-tab" id="wb-mob-preview"><span class="mt-icon">▶</span>Preview</button>
+  <button class="wb-mob-tab" data-drawer="wb-drawer-modes"><span class="mt-icon">⋮</span>More</button>
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/history.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/bg-effects.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/industry-templates.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/image-editor.js"></script>
+<script src="js/exporter.js"></script>
+<script src="js/importer.js"></script>
+<script src="js/mobile.js"></script>
+<script src="js/collections.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/media-library.js"></script>
+<script src="js/blog-engine.js"></script>
+<script src="js/theme-view.js"></script>
+<script src="js/menu-builder.js"></script>
+<script src="js/modes.js"></script>
+<script src="js/builder.js"></script>
+<script>
+/* Sidebar tab switching */
+document.querySelectorAll('.wb-sidebar-tab[data-tab]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const sidebar = tab.closest('.wb-sidebar');
+    sidebar.querySelectorAll('.wb-sidebar-tab').forEach(t => t.classList.remove('active'));
+    sidebar.querySelectorAll('.wb-sidebar-panel').forEach(p => p.classList.remove('active'));
+    const inspector = sidebar.querySelector('#wb-inspector-body');
+    if (inspector) inspector.style.display = 'none';
+    tab.classList.add('active');
+    const panel = sidebar.querySelector(`[data-panel="${tab.dataset.tab}"]`);
+    if (panel) panel.classList.add('active');
+    if (tab.dataset.tab === 'theme') Editor.renderThemePanel();
+    if (tab.dataset.tab === 'seo') Editor.renderSeoPanel();
+    if (tab.dataset.tab === 'assets') Editor.renderAssetsPanel();
+    if (tab.dataset.tab === 'templates') Editor.renderTemplatesPanel();
+  });
+});
+/* Left sidebar Inspector tab (no data-tab — always shows inspector) */
+document.querySelectorAll('.wb-sidebar-tab:not([data-tab])').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const sidebar = tab.closest('.wb-sidebar');
+    sidebar.querySelectorAll('.wb-sidebar-tab').forEach(t => t.classList.remove('active'));
+    sidebar.querySelectorAll('.wb-sidebar-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const inspector = sidebar.querySelector('#wb-inspector-body');
+    if (inspector) inspector.style.display = '';
+  });
+});
+
+/* Build preview HTML */
+function buildPreviewHtml() {
+  const project = Builder.project;
+  const css = Exporter.buildBaseCss(project);
+  const sections = Exporter.buildSectionsHtml(project);
+  const nav = Exporter.buildNavbar(project);
+  const js = Exporter.buildBaseJs();
+  const gFont = Exporter.buildGoogleFontsUrl(project);
+  const fontLink = gFont ? `<link rel="stylesheet" href="${gFont}">` : '';
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${project.meta.title||'Preview'}</title>${fontLink}<style>*{box-sizing:border-box;}${css}</style></head><body>${nav}${sections}<script>${js}<\/script></body></html>`;
+}
+
+/* Preview modal */
+document.getElementById('btn-preview').addEventListener('click', () => {
+  const modal = document.getElementById('wb-preview-modal');
+  const iframe = document.getElementById('wb-preview-iframe');
+  iframe.srcdoc = buildPreviewHtml();
+  document.getElementById('pv-url-bar').textContent = Builder.project.meta.title || 'Preview';
+  document.querySelectorAll('[data-pv]').forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-pv="desktop"]').classList.add('active');
+  iframe.className = 'pv-desktop';
+  modal.classList.add('active');
+});
+document.getElementById('btn-close-preview').addEventListener('click', () => {
+  document.getElementById('wb-preview-modal').classList.remove('active');
+  document.getElementById('wb-preview-iframe').srcdoc = '';
+});
+document.getElementById('btn-open-tab').addEventListener('click', () => {
+  const blob = new Blob([buildPreviewHtml()], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const tab = window.open(url, '_blank');
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+  if (!tab) UI.toast('Pop-up blocked — allow pop-ups and try again.', true);
+});
+document.querySelectorAll('[data-pv]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-pv]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('wb-preview-iframe').className = 'pv-' + btn.dataset.pv;
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('wb-preview-modal');
+    if (modal.classList.contains('active')) { modal.classList.remove('active'); document.getElementById('wb-preview-iframe').srcdoc = ''; }
+  }
+});
+</script>
+</body>
+</html>
