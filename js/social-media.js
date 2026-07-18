@@ -5,10 +5,10 @@
 
 // Social platform configurations with icon symbols and URLs
 const SocialPlatforms = {
-  facebook: { name: 'Facebook', icon: '👍', defaultUrl: 'https://facebook.com' },
+  facebook: { name: 'Facebook', icon: 'f', defaultUrl: 'https://facebook.com' },
   twitter: { name: 'Twitter / X', icon: '𝕏', defaultUrl: 'https://twitter.com' },
   instagram: { name: 'Instagram', icon: '📷', defaultUrl: 'https://instagram.com' },
-  linkedin: { name: 'LinkedIn', icon: '🔗', defaultUrl: 'https://linkedin.com' },
+  linkedin: { name: 'LinkedIn', icon: 'in', defaultUrl: 'https://linkedin.com' },
   youtube: { name: 'YouTube', icon: '▶️', defaultUrl: 'https://youtube.com' },
   github: { name: 'GitHub', icon: '🐙', defaultUrl: 'https://github.com' },
   tiktok: { name: 'TikTok', icon: '🎵', defaultUrl: 'https://tiktok.com' },
