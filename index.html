@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Offline Website Builder Pro</title>
 <link rel="stylesheet" href="css/builder.css">
+<link rel="stylesheet" href="css/social-media.css">
 </head>
 <body>
 <div id="wb-app">
-
+  
   <!-- TOOLBAR -->
   <div id="wb-toolbar">
     <div class="wb-toolbar-brand">🏗 <span>Builder</span> Pro</div>
@@ -72,6 +73,7 @@
           <div class="wb-palette-item" data-section-type="statistics"><span class="pi-icon">📈</span><span class="pi-name">Statistics</span></div>
           <div class="wb-palette-item" data-section-type="clients"><span class="pi-icon">🏢</span><span class="pi-name">Clients</span></div>
           <div class="wb-palette-item" data-section-type="map"><span class="pi-icon">📍</span><span class="pi-name">Google Map</span></div>
+          <div class="wb-palette-item" data-section-type="social-media"><span class="pi-icon">📱</span><span class="pi-name">Social Media</span></div>
           <div class="wb-palette-item" data-section-type="cta"><span class="pi-icon">📣</span><span class="pi-name">CTA</span></div>
           <div class="wb-palette-item" data-section-type="contact"><span class="pi-icon">✉️</span><span class="pi-name">Contact</span></div>
           <div class="wb-palette-item" data-section-type="newsletter"><span class="pi-icon">📧</span><span class="pi-name">Newsletter</span></div>
@@ -234,6 +236,7 @@
       <div class="wb-palette-item" data-section-type="statistics"><span class="pi-icon">📈</span><span class="pi-name">Stats</span></div>
       <div class="wb-palette-item" data-section-type="clients"><span class="pi-icon">🏢</span><span class="pi-name">Clients</span></div>
       <div class="wb-palette-item" data-section-type="map"><span class="pi-icon">📍</span><span class="pi-name">Map</span></div>
+      <div class="wb-palette-item" data-section-type="social-media"><span class="pi-icon">📱</span><span class="pi-name">Social</span></div>
       <div class="wb-palette-item" data-section-type="cta"><span class="pi-icon">📣</span><span class="pi-name">CTA</span></div>
       <div class="wb-palette-item" data-section-type="contact"><span class="pi-icon">✉️</span><span class="pi-name">Contact</span></div>
       <div class="wb-palette-item" data-section-type="newsletter"><span class="pi-icon">📧</span><span class="pi-name">Newsletter</span></div>
@@ -311,6 +314,7 @@
 <script src="js/theme-view.js"></script>
 <script src="js/menu-builder.js"></script>
 <script src="js/modes.js"></script>
+<script src="js/social-media.js"></script>
 <script src="js/builder.js"></script>
 <script>
 /* Sidebar tab switching */
@@ -351,7 +355,7 @@ function buildPreviewHtml() {
   const js = Exporter.buildBaseJs();
   const gFont = Exporter.buildGoogleFontsUrl(project);
   const fontLink = gFont ? `<link rel="stylesheet" href="${gFont}">` : '';
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${project.meta.title||'Preview'}</title>${fontLink}<style>*{box-sizing:border-box;}${css}</style></head><body>${nav}${sections}<script>${js}<\/script></body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${project.meta.title||'Preview'}</title>${fontLink}<style>${css}</style></head><body><div id="wb-root">${nav}${sections}</div><script>${js}</script></body></html>`;
 }
 
 /* Preview modal */
