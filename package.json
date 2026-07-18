@@ -1,0 +1,12 @@
+{
+  "name": "package-name",
+  "version": "1.0.0",
+  "description": "Offline Website Builder Pro - Drag & drop website builder",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "keywords": ["website", "builder", "drag-drop", "no-code"],
+  "author": "fnotes007",
+  "license": "MIT"
+}
